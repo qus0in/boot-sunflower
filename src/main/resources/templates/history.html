@@ -13,15 +13,6 @@
     <section class="container">
         <h1>선배의 잔소리</h1>
         <p>이 시대에는 조언해주는 참된 어른이 없다. 그래서 만들었다!</p>
-        <form method="post"
-              th:action="@{/}"
-              th:object="${promptForm}">
-            <div class="mb-3">
-                <label for="inputText" class="form-label">텍스트 :</label>
-                <input type="text" class="form-control" id="inputText" th:field="*{text}">
-            </div>
-            <button type="submit" class="btn btn-primary">변환</button>
-        </form>
         <section class="mt-2 p-1" th:if="${promptData}">
             <p th:text="${promptData.id}"></p>
             <p th:text="${promptData.createdAt}"></p>
