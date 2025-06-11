@@ -1,24 +1,13 @@
 package org.example.bootsunflower.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.genai.Client;
 import com.google.genai.types.Content;
 import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
 import com.google.genai.types.Part;
 import lombok.RequiredArgsConstructor;
-import org.example.bootsunflower.dto.GeminiRequestDTO;
-import org.example.bootsunflower.dto.GeminiResponseDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -38,7 +27,7 @@ public class GeminiService {
                     client.models.generateContent(
                             "gemini-2.0-flash",
                             text,
-                            null);
+                            config);
             return response.text();
         }
     }
